@@ -1,11 +1,11 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import Badge from "./components/Badge/Badge";
+import ButtonIcon from "./components/Button/ButtonIcon";
 
 function App() {
   return (
     <>
-      <Badge text="Comfort Food" />
+      <ButtonIcon />
       <Outlet />
     </>
   );
