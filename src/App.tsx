@@ -1,11 +1,11 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import ButtonIcon from "./components/Button/ButtonIcon";
+import ButtonIconText from "./components/Button/ButtonIconText";
 
 function App() {
   return (
     <>
-      <ButtonIcon />
+      <ButtonIconText />
       <Outlet />
     </>
   );
