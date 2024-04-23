@@ -13,7 +13,7 @@ const CategoryRounded = ({ title, photoUrl: url }: CategoryRoundedProps) => {
         src={url}
         alt="restaurant category"
       />
-      <figcaption className="pt-4">
+      <figcaption className="mt-4">
         <span className="font-medium text-black ">{title}</span>
       </figcaption>
     </figure>
