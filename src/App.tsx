@@ -1,11 +1,18 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import Header from "./components/Header/Header";
+import Button from "./components/Button/Button";
+import { FiShoppingCart } from "react-icons/fi";
+import ButtonIcon from "./components/Button/ButtonIcon";
 
 function App() {
   return (
     <>
-      <Header sticky={true} />
+      <Button
+        withIcon={true}
+        children="Button"
+        disabled={true}
+        icon={<FiShoppingCart size={"1.5rem"} />}
+      />
       <Outlet />
     </>
   );
