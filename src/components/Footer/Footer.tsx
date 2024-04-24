@@ -1,5 +1,7 @@
 import React from "react";
 import FooterCard from "../FooterCard/FooterCard";
+import googlePlayBanner from "../../assets/images/googleplay-banner.png";
+import appStoreBanner from "../../assets/images/appstore-banner.png";
 
 type FooterProps = {};
 
@@ -56,7 +58,20 @@ const Footer = (props: FooterProps) => {
           </svg>
           <FooterCard title="Discover Us" links={navigationLinks} />
           <FooterCard title="Social Media" links={socialMediaLinks} />
-          <FooterCard title="Check our Apps" links={navigationLinks} />
+          <FooterCard title="Check our Apps">
+            <div className="flex flex-col justify-end mt-4">
+              <img
+                className="w-32 mb-2"
+                src={appStoreBanner}
+                alt="App Store Banner "
+              />
+              <img
+                className="w-32"
+                src={googlePlayBanner}
+                alt="Google Play Banner"
+              />
+            </div>
+          </FooterCard>
         </div>
       </div>
     </div>
@@ -67,13 +82,16 @@ export default Footer;
 
 /* 
 
+width: '120px', marginBottom: '0.5rem' 
 
-  padding-right: ${logoOnly ? '0' : '0.75rem'};
-    height: ${large ? '75px' : '24px'};
-    @media ${breakpoints.S} {
-      height: ${large ? '150px' : '24px'};
+ .footer-bottom {
+   
+      margin-top: 1rem;
     }
 
+    .footer-bottom div {
+      padding-left: 1rem;
+    }
 
 
 
