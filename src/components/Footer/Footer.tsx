@@ -44,7 +44,7 @@ const Footer = (props: FooterProps) => {
   ];
 
   return (
-    <div className="py-8 px-0 min-h-96 bg-grey-dark5 text-white">
+    <div className="py-8 px-0 min-h-96 bg-grey-dark5 text-white ">
       <div className=" py-0 px-6 sm:px-16 max-w-7xl my-0 mx-auto">
         <div className="grid gap-4 grid-cols-1  md:grid-cols-3 lg:grid-cols-4 ">
           <svg
