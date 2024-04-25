@@ -52,15 +52,9 @@ const Button = ({
 }: ButtonProps) => {
   return (
     <div
-      className={`inline-flex z-10 items-center justify-center 
-      
-   
-     ${withIcon ? "p-4" : large ? "py-5 px-6" : "py-3.5 px-6"}
-      
-
-    
-
-
+      className={`
+      inline-flex z-10 items-center justify-center 
+      ${withIcon ? "p-3" : large ? "py-5 px-4" : "py-3.5 px-4"} 
       ${clear ? "bg-transparent" : "bg-grey-dark6"} 
       outline-none
       ${clear ? "text-otherBlack" : "text-white"} 

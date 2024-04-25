@@ -32,3 +32,7 @@ export type Restaurant = {
     drinks: FoodMenuItem[];
   };
 };
+
+export type User = {
+  name: string;
+};

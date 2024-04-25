@@ -1,5 +1,6 @@
 import React from "react";
 import ButtonDefault from "../Button/ButtonDefault";
+import Button from "../Button/Button";
 
 type ErrorBlockProps = {
   title?: string;
@@ -27,7 +28,7 @@ const ErrorBlock = ({
         There seems that there are no restaurants in this category yet. Try to
         come back later?
       </p>
-      <ButtonDefault onClick={onButtonClick}>{buttonText}</ButtonDefault>
+      <Button onClick={onButtonClick}>{buttonText}</Button>
     </div>
   );
 };

@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import ButtonClear from "../Button/ButtonClear";
 import ButtonRound from "../Button/ButtonRound";
 import ButtonIconText from "../Button/ButtonIconText";
+import Button from "../Button/Button";
+import { FiShoppingCart } from "react-icons/fi";
 
 type HeaderProps = {
   sticky: boolean;
@@ -10,6 +12,8 @@ type HeaderProps = {
 };
 
 const Header = ({ sticky }: HeaderProps) => {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
   return (
     <div
       className={`${
@@ -17,7 +21,7 @@ const Header = ({ sticky }: HeaderProps) => {
       } top-0 left-0 z-10 flex justify-space-between h-14 md:h-20 w-full py-0 px-16 border-b border-grey-light4 bg-white `}
     >
       <Link
-        className=" flex w-8 md:w-14  pl-4"
+        className=" flex w-10 md:w-14  pl-4"
         to="/"
         aria-label="go to home page"
       >
@@ -51,7 +55,12 @@ const Header = ({ sticky }: HeaderProps) => {
             </Link>
           </div>
         </span>
-        <ButtonIconText />
+        <Button icon={<FiShoppingCart size={"1.5rem"} />} withIcon={true}>
+          <span className=" hidden md:inline-block md:mr-1 ml-1 text-grey-base">
+            Order
+          </span>
+          <p>$13</p>
+        </Button>
       </div>
     </div>
   );
@@ -60,6 +69,28 @@ const Header = ({ sticky }: HeaderProps) => {
 export default Header;
 
 /*
+
+
+export const CartText = styled(Body)(
+  ({ theme: { color } }) => css`
+    display: none;
+    @media ${breakpoints.M} {
+      display: inline-block;
+      color: ${color.cartButtonText};
+      margin-right: 0.25rem;
+    }
+  `
+
+export const CartTotal = styled(Body)(
+  ({ theme: { color } }) => css`
+    display: inline-block;
+    color: ${color.buttonText};
+  `
+)
+
+
+)
+
 
 
 */
