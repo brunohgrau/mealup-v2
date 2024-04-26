@@ -1,11 +1,12 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import { Counter } from "./components/Counter";
+import ProductList from "./components/ProductList";
+import RestaurantList from "./components/RestaurantList";
 
 function App() {
   return (
     <>
-      <Counter />
+      <RestaurantList />
       <Outlet />
     </>
   );

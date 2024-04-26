@@ -33,6 +33,9 @@ export type Restaurant = {
   };
 };
 
-export type User = {
-  name: string;
+export type Todo = {
+  userId: number;
+  id: number;
+  title: string;
+  completed: boolean;
 };
