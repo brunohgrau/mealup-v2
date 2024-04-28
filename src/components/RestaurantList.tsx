@@ -2,6 +2,13 @@
 import React from "react";
 import { useGetRestaurantsQuery } from "../store/apiSlice";
 
+interface FoodMenuItem {
+  id?: number;
+  name?: string;
+  description?: string;
+  price?: number;
+}
+
 interface Restaurant {
   id: string;
   name: string;
@@ -12,9 +19,14 @@ interface Restaurant {
   photoUrl: string;
   rating: number;
   categories: string[];
+  menu: {
+    food: FoodMenuItem[];
+    dessert: FoodMenuItem[];
+    drinks: FoodMenuItem[];
+  };
 }
 
-const RestaurantList: React.FC = () => {
+const RestaurantList = () => {
   const { isLoading, error, data } = useGetRestaurantsQuery("restaurants");
 
   if (isLoading) return <div>Loading...</div>;
@@ -23,7 +35,16 @@ const RestaurantList: React.FC = () => {
   return (
     <ul>
       {data.map((restaurant: Restaurant) => (
-        <li key={restaurant.id}>{restaurant.name}</li>
+        <li key={restaurant.id}>
+          <h2>{restaurant.name}</h2>
+          <ul>
+            {restaurant.menu.dessert.map((menuItem: FoodMenuItem) => (
+              <li key={menuItem.id}>
+                {menuItem.name} - {`$${menuItem.price}`}
+              </li>
+            ))}
+          </ul>
+        </li>
       ))}
     </ul>
   );
