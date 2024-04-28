@@ -47,11 +47,13 @@ const Button = ({
   icon,
   iconSize,
   withIcon,
+  onClick = () => {},
 
   ...props
 }: ButtonProps) => {
   return (
     <div
+      onClick={onClick}
       className={`
       inline-flex z-10 items-center justify-center 
       ${withIcon ? "p-3" : large ? "py-5 px-4" : "py-3.5 px-4"} 

@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, CaseReducer } from "@reduxjs/toolkit";
 import { ShopItem } from "../types";
 
 export interface CartItem extends ShopItem {
@@ -26,7 +26,12 @@ const initialState: CartState = {
 const cartSlice = createSlice({
   name: "cart",
   initialState,
-  reducers: {},
+  reducers: {
+    toggleVisibilityAction: (state: CartState) => {
+      state.visible = !state.visible;
+    },
+  },
 });
 
+export const { toggleVisibilityAction } = cartSlice.actions;
 export default cartSlice.reducer;

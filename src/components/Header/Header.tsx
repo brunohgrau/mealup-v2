@@ -2,17 +2,24 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import ButtonClear from "../Button/ButtonClear";
 import ButtonRound from "../Button/ButtonRound";
-import ButtonIconText from "../Button/ButtonIconText";
 import Button from "../Button/Button";
 import { FiShoppingCart } from "react-icons/fi";
+import { toggleVisibilityAction } from "../../store/cartSlice";
+
+import { useSelector, useDispatch } from "react-redux";
 
 type HeaderProps = {
   sticky: boolean;
+  isCartVisible?: boolean;
+
   totalPrice?: number;
 };
 
 const Header = ({ sticky }: HeaderProps) => {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const dispatch = useDispatch();
+  const handleToggleVisibility = () => {
+    dispatch(toggleVisibilityAction()); // Dispatch the action creator
+  };
 
   return (
     <div
@@ -55,7 +62,11 @@ const Header = ({ sticky }: HeaderProps) => {
             </Link>
           </div>
         </span>
-        <Button icon={<FiShoppingCart size={"1.5rem"} />} withIcon={true}>
+        <Button
+          icon={<FiShoppingCart size={"1.5rem"} />}
+          withIcon={true}
+          onClick={handleToggleVisibility}
+        >
           <span className=" hidden md:inline-block md:mr-1 ml-1 text-grey-base">
             Order
           </span>
