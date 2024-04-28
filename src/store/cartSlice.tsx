@@ -12,5 +12,21 @@ export type CartState = {
 
 const initialState: CartState = {
   visible: false,
-  items: [],
+  items: [
+    {
+      id: 1,
+      name: "Item 1",
+      price: 10,
+      quantity: 1,
+      imageUrl: "",
+    },
+  ],
 };
+
+const cartSlice = createSlice({
+  name: "cart",
+  initialState,
+  reducers: {},
+});
+
+export default cartSlice.reducer;
