@@ -1,6 +1,6 @@
 // ProductList.jsx
 import React from "react";
-import { useGetRestaurantsQuery } from "../store/apiSlice";
+import { useGetRestaurantsQuery } from "../store/restaurantApiSlice";
 
 interface FoodMenuItem {
   id?: number;

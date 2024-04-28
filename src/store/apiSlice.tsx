@@ -1,21 +1,8 @@
-// Import the RTK Query methods from the React-specific entry point
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { fetchBaseQuery, createApi } from "@reduxjs/toolkit/query/react"; // Import for hooks
 
-// Define our single API slice object
 export const apiSlice = createApi({
-  // The cache reducer expects to be added at `state.api` (already default - this is optional)
   reducerPath: "api",
-  // All of our requests will have URLs starting with '/fakeApi'
   baseQuery: fetchBaseQuery({ baseUrl: "/fakeApi" }),
-  // The "endpoints" represent operations and requests for this server
-  endpoints: (builder) => ({
-    // The `getRestaurants` endpoint is a "query" operation that returns data
-    getRestaurants: builder.query({
-      // The URL for the request is '/fakeApi/restaurants'
-      query: () => "/restaurants",
-    }),
-  }),
+  tagTypes: ["Restaurant", "Order"],
+  endpoints: (builder) => ({}),
 });
-
-// Export the auto-generated hook for the `getRestaurrants` query endpoint
-export const { useGetRestaurantsQuery } = apiSlice;
