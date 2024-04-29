@@ -17,6 +17,9 @@ type HeaderProps = {
 
 const Header = ({ sticky }: HeaderProps) => {
   const dispatch = useDispatch();
+  const isCartVisible = useSelector((state: any) => state.cart.visible);
+  console.log(isCartVisible);
+
   const handleToggleVisibility = () => {
     dispatch(toggleVisibilityAction()); // Dispatch the action creator
   };
