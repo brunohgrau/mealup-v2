@@ -26,6 +26,10 @@ import SearchIcon from "@mui/icons-material/Search";
 import { LinkOutlined } from "@mui/icons-material";
 import Divider from "@mui/material/Divider";
 import CloseIcon from "@mui/icons-material/Close";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
 
 type HeaderProps = {
   sticky?: boolean;
@@ -34,13 +38,6 @@ type HeaderProps = {
 };
 
 const Header = ({}: HeaderProps) => {
-  const dispatch = useDispatch();
-  const isCartVisible = useSelector((state: any) => state.cart.visible);
-
-  const handleToggleVisibility = () => {
-    dispatch(toggleVisibilityAction()); // Dispatch the action creator
-  };
-
   /*Drawer Component Logic*/
   const [mobileOpen, setMobileOpen] = useState(false);
   const ToggleDrawer = () => {
@@ -53,38 +50,102 @@ const Header = ({}: HeaderProps) => {
 
   /*Drawer Component*/
   const drawer = (
-    <Box onClick={ToggleDrawer} sx={{ textAlign: "center" }}>
+    <Box sx={{ textAlign: "center" }}>
       {/* Drawer Header*/}
       <Box
         sx={{
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
-          ml: 2,
-          mr: 2,
+          backgroundColor: "#bdbdbd",
         }}
       >
-        <Box sx={{ display: "flex", alignItems: "center" }}>
-          <DiamondIcon sx={{ mr: 1 }} />
-
-          <Typography variant="h6" sx={{ my: 2 }}>
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            ml: 2,
+          }}
+        >
+          <Typography variant="h5" sx={{ my: 2, fontWeight: "bold" }}>
             Your Order
           </Typography>
         </Box>
 
-        <CloseIcon />
+        <CloseIcon sx={{ mr: 2 }} onClick={ToggleDrawer} />
       </Box>
       <Divider />
-      {/* Drawer List*/}
-      <List sx={{ ml: 2 }}>
-        <ListItem disablePadding>
-          <ListItemText primary={"Fries"} />
-          <Button />
-        </ListItem>
-        <ListItem disablePadding>
-          <ListItemText primary={""} />
-        </ListItem>
-      </List>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "flex-start",
+          ml: 2,
+          mr: 2,
+          mt: 5,
+        }}
+      >
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "flex-start",
+          }}
+        >
+          <Typography variant="body1" fontWeight="bold">
+            Fries
+          </Typography>
+          <Typography variant="body1" sx={{ mt: 2 }}>
+            Fried French Fries
+          </Typography>
+          <Typography variant="body1" sx={{ mt: 2 }}>
+            $5
+          </Typography>
+        </Box>
+
+        <FormControl sx={{ m: 1, minWidth: 60 }}>
+          <Select
+            labelId="demo-simple-select-autowidth-label"
+            id="demo-simple-select-autowidth"
+            autoWidth
+            label="Quantity"
+          >
+            <MenuItem value={1}>1</MenuItem>
+            <MenuItem value={2}>2</MenuItem>
+            <MenuItem value={3}>3</MenuItem>
+          </Select>
+        </FormControl>
+      </Box>
+      <Box
+        sx={{
+          position: "absolute",
+          bottom: 0,
+          height: "165px",
+          width: "100%",
+          ml: 2,
+          mr: 2,
+        }}
+      >
+        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+          <Typography variant="h6" sx={{ ml: 2 }}>
+            Total
+          </Typography>
+          <Typography variant="h6" sx={{ mr: 2 }}>
+            $5000
+          </Typography>
+        </Box>
+
+        <Box sx={{ mt: 4, mx: 2 }}>
+          <Button
+            variant="contained"
+            color="primary"
+            fullWidth
+            sx={{ p: 3, textTransform: "none", backgroundColor: "black" }}
+          >
+            <Typography variant="body1">Checkout</Typography>
+          </Button>
+        </Box>
+      </Box>
     </Box>
   );
 
@@ -182,7 +243,7 @@ const Header = ({}: HeaderProps) => {
               display: { xs: "block" },
               "& .MuiDrawer-paper": {
                 boxSizing: "border-box",
-                width: { xs: "100%", md: "50%" },
+                width: { xs: "100%", md: "30%" },
               },
             }}
           >
