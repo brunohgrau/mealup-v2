@@ -1,110 +1,55 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import ButtonClear from "../Button/ButtonClear";
-import ButtonRound from "../Button/ButtonRound";
-import Button from "../Button/Button";
-import { FiShoppingCart } from "react-icons/fi";
 import { toggleVisibilityAction } from "../../store/cartSlice";
-
 import { useSelector, useDispatch } from "react-redux";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import CssBaseline from "@mui/material/CssBaseline";
+import { styled, alpha } from "@mui/material/styles";
+import DiamondIcon from "@mui/icons-material/Diamond";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
+
+import { Link } from "react-router-dom";
 
 type HeaderProps = {
-  sticky: boolean;
+  sticky?: boolean;
   isCartVisible?: boolean;
-
   totalPrice?: number;
 };
 
-const Header = ({ sticky }: HeaderProps) => {
+const Header = ({}: HeaderProps) => {
   const dispatch = useDispatch();
   const isCartVisible = useSelector((state: any) => state.cart.visible);
-  console.log(isCartVisible);
 
   const handleToggleVisibility = () => {
     dispatch(toggleVisibilityAction()); // Dispatch the action creator
   };
 
   return (
-    <div
-      className={`${
-        sticky ? "sticky" : "relative"
-      } top-0 left-0 z-10 flex justify-space-between h-14 md:h-20 w-full py-0 px-16 border-b border-grey-light4 bg-white `}
-    >
-      <Link
-        className=" flex w-10 md:w-14  pl-4"
-        to="/"
-        aria-label="go to home page"
-      >
-        <svg
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
-          className="fill-current w-full"
-        >
-          <path d="M22.672 15.226l-2.432.811.841 2.515c.33 1.019-.209 2.127-1.23 2.456-1.15.325-2.148-.321-2.463-1.226l-.84-2.518-5.013 1.677.84 2.517c.391 1.203-.434 2.542-1.831 2.542-.88 0-1.601-.564-1.86-1.314l-.842-2.516-2.431.809c-1.135.328-2.145-.317-2.463-1.229-.329-1.018.211-2.127 1.231-2.456l2.432-.809-1.621-4.823-2.432.808c-1.355.384-2.558-.59-2.558-1.839 0-.817.509-1.582 1.327-1.846l2.433-.809-.842-2.515c-.33-1.02.211-2.129 1.232-2.458 1.02-.329 2.13.209 2.461 1.229l.842 2.515 5.011-1.677-.839-2.517c-.403-1.238.484-2.553 1.843-2.553.819 0 1.585.509 1.85 1.326l.841 2.517 2.431-.81c1.02-.33 2.131.211 2.461 1.229.332 1.018-.21 2.126-1.23 2.456l-2.433.809 1.622 4.823 2.433-.809c1.242-.401 2.557.484 2.557 1.838 0 .819-.51 1.583-1.328 1.847m-8.992-6.428l-5.01 1.675 1.619 4.828 5.011-1.674-1.62-4.829z"></path>
-        </svg>
-      </Link>
-      <div className="flex items-center justify-end h-full w-full">
-        <span className="hidden md:contents">
-          <div className="mr-2">
-            <Link to="/">
-              <ButtonRound />
-            </Link>
-          </div>
-
-          <div className="mr-2">
-            <Link to="/">
-              <ButtonClear>Home</ButtonClear>
-            </Link>
-          </div>
-
-          <div className="mr-2">
-            <Link to="/">
-              <ButtonClear className="">All Restaurants</ButtonClear>
-            </Link>
-          </div>
-        </span>
-        <Button
-          icon={<FiShoppingCart size={"1.5rem"} />}
-          withIcon={true}
-          onClick={handleToggleVisibility}
-        >
-          <span className=" hidden md:inline-block md:mr-1 ml-1 text-grey-base">
-            Order
-          </span>
-          <p>$13</p>
-        </Button>
-      </div>
-    </div>
+    <>
+      <Box sx={{ display: "flex" }}>
+        <CssBaseline />
+        <AppBar position="sticky" component="nav" sx={{ padding: "1rem" }}>
+          {/* Shopname  and Logo*/}
+          <Box
+            sx={{
+              display: "flex",
+              flexGrow: 1,
+              alignItems: "center",
+              marginLeft: "1rem",
+            }}
+          >
+            <DiamondIcon sx={{ mr: 1 }} />
+            <Typography variant="h6" component="div">
+              <Link to="/" color={"white"}>
+                <Button sx={{ color: "#fff" }}>Shop Name</Button>
+              </Link>
+            </Typography>
+          </Box>
+        </AppBar>
+      </Box>
+    </>
   );
 };
 
 export default Header;
-
-/*
-
-
-export const CartText = styled(Body)(
-  ({ theme: { color } }) => css`
-    display: none;
-    @media ${breakpoints.M} {
-      display: inline-block;
-      color: ${color.cartButtonText};
-      margin-right: 0.25rem;
-    }
-  `
-
-export const CartTotal = styled(Body)(
-  ({ theme: { color } }) => css`
-    display: inline-block;
-    color: ${color.buttonText};
-  `
-)
-
-
-)
-
-
-
-*/
