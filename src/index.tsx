@@ -11,9 +11,14 @@ import {
 } from "react-router-dom";
 import { store } from "./store/store";
 import { Provider } from "react-redux";
+import HomePage from "./pages/HomePage";
 
 const router = createBrowserRouter(
-  createRoutesFromElements(<Route path="/" element={<App />}></Route>)
+  createRoutesFromElements(
+    <Route path="/" element={<App />}>
+      <Route path="/" element={<HomePage />} />
+    </Route>
+  )
 );
 
 async function deferRender() {

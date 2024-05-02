@@ -1,32 +1,18 @@
 import React, { useState } from "react";
-import { toggleVisibilityAction } from "../../store/cartSlice";
-import { useSelector, useDispatch } from "react-redux";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
-import { styled, alpha } from "@mui/material/styles";
 import DiamondIcon from "@mui/icons-material/Diamond";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
 import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemText from "@mui/material/ListItemText";
 import Toolbar from "@mui/material/Toolbar";
-import InputBase from "@mui/material/InputBase";
 import Badge from "@mui/material/Badge";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import MenuIcon from "@mui/icons-material/Menu";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import PersonIcon from "@mui/icons-material/Person";
-import SearchIcon from "@mui/icons-material/Search";
-import { LinkOutlined } from "@mui/icons-material";
 import Divider from "@mui/material/Divider";
 import CloseIcon from "@mui/icons-material/Close";
-import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
@@ -122,8 +108,6 @@ const Header = ({}: HeaderProps) => {
           bottom: 0,
           height: "165px",
           width: "100%",
-          ml: 2,
-          mr: 2,
         }}
       >
         <Box sx={{ display: "flex", justifyContent: "space-between" }}>
@@ -153,7 +137,11 @@ const Header = ({}: HeaderProps) => {
     <>
       <Box sx={{ display: "flex" }}>
         <CssBaseline />
-        <AppBar component="nav" sx={{ bgcolor: "white", px: "1rem" }}>
+        <AppBar
+          component="nav"
+          elevation={0}
+          sx={{ bgcolor: "white", px: "1rem" }}
+        >
           <Toolbar>
             {/* Shopname  and Logo*/}
             <Box sx={{ display: "flex", flexGrow: 1, alignItems: "center" }}>
