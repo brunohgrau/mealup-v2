@@ -11,7 +11,7 @@ import {
 } from "react-router-dom";
 import { store } from "./store/store";
 import { Provider } from "react-redux";
-import HomePage from "./pages/HomePage";
+import HomePage from "./pages/HomePage/HomePage";
 
 const router = createBrowserRouter(
   createRoutesFromElements(

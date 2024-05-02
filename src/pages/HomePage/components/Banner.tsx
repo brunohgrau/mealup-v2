@@ -3,7 +3,7 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import { Link } from "react-router-dom";
 import Button from "@mui/material/Button";
-import ladies from "../../assets/images/ladies.svg";
+import ladies from "../../../assets/images/ladies.svg";
 
 type Props = {};
 

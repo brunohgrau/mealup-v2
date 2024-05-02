@@ -124,7 +124,12 @@ const Header = ({}: HeaderProps) => {
             variant="contained"
             color="primary"
             fullWidth
-            sx={{ p: 3, textTransform: "none", backgroundColor: "black" }}
+            sx={{
+              p: 3,
+              textTransform: "none",
+              backgroundColor: "black",
+              "&.MuiButton-root:hover": { bgcolor: "black" },
+            }}
           >
             <Typography variant="body1">Checkout</Typography>
           </Button>
