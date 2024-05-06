@@ -17,6 +17,7 @@ const HomePage = (props: Props) => {
       <AwardWinningSection />
       <Box sx={{ marginBottom: "4.5rem" }}></Box>
       <CategoriesSection title="Categories" />
+      <Box sx={{ marginBottom: "4.5rem" }}></Box>
     </div>
   );
 };

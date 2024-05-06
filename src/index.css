@@ -34,3 +34,8 @@ code {
     min-height: 6.5rem;
   }
 }
+
+.footerSvg {
+  width: 6rem;
+  height: 6rem;
+}

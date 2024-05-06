@@ -8,6 +8,7 @@ type Props = {};
 const RestaurantsSection = (props: Props) => {
   return (
     <>
+      {/*Container*/}
       <Box
         sx={{
           position: "relative",
@@ -19,6 +20,7 @@ const RestaurantsSection = (props: Props) => {
           pr: "0rem",
         }}
       >
+        {/*Container*/}
         <Box
           sx={{
             display: "flex",
@@ -31,6 +33,7 @@ const RestaurantsSection = (props: Props) => {
             Our favourite picks
           </Typography>
         </Box>
+        {/*Card*/}
         <RestaurantCard />
       </Box>
     </>
