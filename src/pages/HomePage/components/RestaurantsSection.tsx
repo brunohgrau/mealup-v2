@@ -15,7 +15,6 @@ const RestaurantsSection = (props: Props) => {
           flexDirection: "column",
           width: "100%",
           height: "100%",
-          pt: "4rem",
           pl: "1rem",
           pr: "0rem",
         }}
@@ -42,11 +41,6 @@ export default RestaurantsSection;
 
 /*
 
-const TopContainer = styled.div`
-
-  align-items: center;
- 
-`
 
 
 */

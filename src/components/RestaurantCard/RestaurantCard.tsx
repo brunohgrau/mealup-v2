@@ -25,7 +25,7 @@ type RestaurantCardProps = {
 
 const RestaurantCard = (props: RestaurantCardProps) => {
   return (
-    <Card sx={{ maxWidth: "400px" }}>
+    <Card sx={{ maxWidth: "350px" }}>
       <CardMedia
         sx={{ height: "200px" }}
         image="https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1003&q=20"
@@ -49,7 +49,7 @@ const RestaurantCard = (props: RestaurantCardProps) => {
           Nicest place for burger
         </Typography>
       </CardContent>
-      <CardActions>
+      <CardActions sx={{ mb: "1rem" }}>
         <Stack direction="row" spacing={1} sx={{ ml: "0.5rem" }}>
           <Chip label="Burger" component="a" href="#basic-chip" />
           <Chip label="Comfort Food" component="a" href="#basic-chip" />

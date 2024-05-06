@@ -16,3 +16,21 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.roundImage {
+  border-radius: 50%;
+  width: 4.5rem;
+  height: 4.5rem;
+  min-width: 4.5rem;
+  min-height: 4.5rem;
+  max-height: 200px;
+}
+
+@media (min-width: 768px) {
+  .roundImage {
+    width: 6.5rem;
+    height: 6.5rem;
+    min-width: 6.5rem;
+    min-height: 6.5rem;
+  }
+}
